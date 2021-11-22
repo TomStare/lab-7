@@ -44,9 +44,12 @@ void Performing_the_task(int** x, const int n, const int m)
 	{
 		for (int i = 0; i < n; i++)
 		{
-			for (int j = 0; (j < m-(i+1)) && (rows[i] == 1); j++)
+			for (int j = 1; j < m; j++)
 			{
-				if (x[i][j] > x[i][j + 1])swap(x[i][j], x[i][j + 1]);
+				for (int n = 0; (n < m - j) && (rows[i] == 1); n++)
+				{
+					if (x[i][n] > x[i][n + 1])swap(x[i][n], x[i][n + 1]);
+				}
 			}
 		}
 	}
@@ -78,4 +81,9 @@ int main()
 	Entering_a_matrix(mx, n, m);
 	Performing_the_task(mx, n, m);
 	Matrix_output(mx, n, m);
+	for (int i = 0; i < n; i++)
+	{
+		delete[] mx[i];
+	}
+	delete[] mx;
 }
