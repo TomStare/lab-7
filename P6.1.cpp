@@ -81,9 +81,4 @@ int main()
 	Entering_a_matrix(mx, n, m);
 	Performing_the_task(mx, n, m);
 	Matrix_output(mx, n, m);
-	for (int i = 0; i < n; i++)
-	{
-		delete[] mx[i];
-	}
-	delete[] mx;
 }
